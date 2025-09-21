@@ -1,0 +1,13 @@
+# Ignore SQLite database
+db.sqlite3
+
+# Ignore Django migration cache
+__pycache__/
+
+# Ignore virtual environment
+myenv/
+venv/
+.env
+
+# Ignore other local files
+*.pyc
