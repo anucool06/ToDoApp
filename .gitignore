@@ -1,13 +1,27 @@
-# Ignore SQLite database
-db.sqlite3
-
-# Ignore Django migration cache
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
 
-# Ignore virtual environment
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# Virtual environment
 myenv/
 venv/
 .env
 
-# Ignore other local files
-*.pyc
+# VSCode settings
+.vscode/
+
+# Mac / Linux / Windows system files
+.DS_Store
+Thumbs.db
