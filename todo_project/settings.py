@@ -17,7 +17,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Add this
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,11 +26,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-&qr19xq#s23#%weo4^f+^%xceq8rrz&#_-4x0@-x6qdms=((f4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 # ALLOWED_HOSTS = []    # commenting for render deployment
-ALLOWED_HOSTS = ['*']  # allowing all hosts for render deployment
+ALLOWED_HOSTS = ['todoapp-fy3t.onrender.com']  # allowing all hosts for render deployment
 
 
 # Application definition
@@ -82,12 +81,6 @@ WSGI_APPLICATION = 'todo_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -124,17 +117,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Database config (Heroku Postgres):
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+import os
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://todo_database_ayew_user:YIoH2ykjRPkWTVYc0OSUGpjRvHxSI6QY@dpg-d39gab2dbo4c738thab0-a.frankfurt-postgres.render.com:5432/todo_database_ayew'
+    )
+}
 
